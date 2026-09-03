@@ -21,6 +21,7 @@
   --pine:#3c6b59;
   --pine-deep:#2b4e41;
   --pine-soft:#ebf1ed;
+  --qa-red:#b4504a;--qa-red-soft:#f6ecea;
   --shadow:0 18px 48px -18px rgba(32,38,35,.28);
   --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
   --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
@@ -113,10 +114,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   font-family:var(--serif);font-weight:500;
   font-size:clamp(15px,2.2vw,21px);letter-spacing:.3em;text-indent:.3em;
   opacity:.94;margin-bottom:14px;
-}
-.hero-loc{
-  font-size:12.5px;letter-spacing:.28em;text-indent:.28em;
-  font-weight:300;opacity:.72;
 }
 .hero-scroll{
   position:absolute;left:50%;bottom:38px;transform:translateX(-50%);
@@ -397,6 +394,48 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   html{scroll-behavior:auto;}
   .shot,.reveal{opacity:1;transform:none;}
 }
+/* ============================================================
+   问答 · 横向连续照片墙
+   ============================================================ */
+.qa{background:linear-gradient(180deg,var(--bg) 0%,#ecefe8 100%);}
+.qa-block{margin-bottom:clamp(34px,5vw,58px);}
+.qa-block:last-child{margin-bottom:0;}
+.qa-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px;}
+.qa-dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;transform:translateY(1px);}
+.qa-block.is-red .qa-dot{background:var(--qa-red);}
+.qa-block.is-green .qa-dot{background:var(--pine);}
+.qa-block.is-red .qa-title{color:#7d3732;}
+.qa-block.is-green .qa-title{color:var(--pine-deep);}
+.qa-title{font-family:var(--serif);font-weight:700;font-size:clamp(19px,2.4vw,24px);letter-spacing:.08em;}
+.qa-sub{font-size:12.5px;font-weight:300;letter-spacing:.12em;color:var(--ink-3);}
+.qa-hint{margin-left:auto;font-size:11px;letter-spacing:.22em;color:var(--ink-3);font-weight:300;white-space:nowrap;}
+.qa-rail{
+  display:flex;align-items:flex-start;gap:clamp(12px,1.6vw,20px);
+  overflow-x:auto;overflow-y:hidden;
+  padding:14px clamp(6px,2vw,18px) 24px;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;cursor:grab;
+  scrollbar-width:thin;scrollbar-color:#c7ccc4 transparent;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);
+}
+.qa-rail.grabbing{cursor:grabbing;scroll-behavior:auto;}
+.qa-rail::-webkit-scrollbar{height:6px;}
+.qa-rail::-webkit-scrollbar-thumb{background:#c7ccc4;border-radius:999px;}
+.qa-rail::-webkit-scrollbar-track{background:transparent;}
+.qa-card{
+  position:relative;flex:0 0 auto;margin:0;padding:0;
+  background:#fff;border:1px solid var(--line);border-radius:4px;
+  box-shadow:0 10px 26px -14px rgba(32,38,35,.30);
+  overflow:hidden;cursor:zoom-in;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.qa-card img{width:100%;height:100%;object-fit:cover;pointer-events:none;background:#fff;}
+.qa-card:hover{transform:translateY(-6px) rotate(0deg)!important;box-shadow:0 22px 42px -16px rgba(32,38,35,.4);z-index:2;}
+@media(max-width:600px){
+  .qa-hint{display:none;}
+  .qa-rail{padding:10px 6px 16px;gap:12px;}
+}
 </style>
 </head>
 <body>
@@ -410,6 +449,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   <nav class="nav-links">
     <a href="#gallery" data-anchor="gallery">影像集</a>
     <a href="#diary" data-anchor="diary">支教日记</a>
+    <a href="#qa" data-anchor="qa">问答</a>
     <a href="#about" data-anchor="about">支教队</a>
   </nav>
 </header>
@@ -422,7 +462,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     <div class="hero-eyebrow">华中科技大学</div>
     <h1 class="hero-title">喻见云柏</h1>
     <p class="hero-sub">云南双柏支教纪实影像</p>
-    <p class="hero-loc">云南省楚雄彝族自治州双柏县</p>
   </div>
   <button class="hero-scroll" data-anchor="gallery" aria-label="向下浏览">
     <span>向下浏览</span>
@@ -472,6 +511,17 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     <div class="diary-dots" id="dDots"></div>
     <div class="diary-hint">左右滑动 · 方向键切换 · 点击海报全屏阅读</div>
   </div>
+</section>
+
+<!-- ===== 问答 ===== -->
+<section class="section qa" id="qa">
+  <div class="sec-head reveal">
+    <div class="sec-eyebrow">Q &amp; A</div>
+    <h2 class="sec-title">问答</h2>
+    <p class="sec-note">大学生写下小问题，孩子们认真作答；孩子们也抛出自己的大问题，交给我们回答。按住左右拖动，连续浏览这面问答墙。</p>
+  </div>
+  <div class="qa-block is-red reveal" id="qaRed"></div>
+  <div class="qa-block is-green reveal" id="qaGreen"></div>
 </section>
 
 <!-- ===== 关于 ===== -->
@@ -718,6 +768,73 @@ var DIARY = [
   {src:"images/diary_17.jpg", w:906, h:1210},
 ];
 
+var QA_RED = [
+  {src:"images/red_01.jpg", w:1340, h:1272, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_02.jpg", w:1420, h:1350, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_03.jpg", w:1500, h:1427, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_04.jpg", w:1500, h:1438, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_05.jpg", w:1500, h:1432, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_06.jpg", w:1434, h:1338, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_07.jpg", w:1446, h:1376, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_08.jpg", w:1466, h:1350, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_09.jpg", w:1500, h:1417, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_10.jpg", w:1472, h:1370, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_11.jpg", w:1500, h:1412, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_12.jpg", w:1500, h:1421, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_13.jpg", w:1500, h:1418, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_14.jpg", w:1370, h:1274, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_15.jpg", w:1500, h:1442, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_16.jpg", w:1500, h:1411, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_17.jpg", w:1500, h:1406, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_18.jpg", w:1500, h:1437, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_19.jpg", w:1500, h:1403, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_20.jpg", w:1500, h:1375, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_21.jpg", w:1500, h:1429, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_22.jpg", w:1500, h:1425, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_23.jpg", w:1500, h:1394, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_24.jpg", w:1500, h:1444, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_25.jpg", w:1500, h:1418, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_26.jpg", w:1500, h:1460, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_27.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_28.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_29.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_30.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_31.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_32.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_33.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_34.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_35.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_36.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_37.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_38.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+  {src:"images/red_39.jpg", w:1500, h:1500, cap:"问答 · 大学生的小问题"},
+];
+var QA_GREEN = [
+  {src:"images/green_01.jpg", w:1500, h:1496, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_02.jpg", w:1256, h:1224, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_03.jpg", w:1396, h:1260, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_04.jpg", w:1428, h:1280, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_05.jpg", w:1466, h:1320, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_06.jpg", w:1422, h:1344, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_07.jpg", w:1388, h:1212, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_08.jpg", w:1440, h:1400, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_09.jpg", w:1044, h:906, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_10.jpg", w:1350, h:1200, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_11.jpg", w:1338, h:1262, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_12.jpg", w:1238, h:1076, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_13.jpg", w:1372, h:1206, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_14.jpg", w:1246, h:1090, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_15.jpg", w:1496, h:1392, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_16.jpg", w:1266, h:1156, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_17.jpg", w:1196, h:1184, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_18.jpg", w:1466, h:1458, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_19.jpg", w:1254, h:1260, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_20.jpg", w:1436, h:1400, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_21.jpg", w:1500, h:1424, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_22.jpg", w:1500, h:1500, cap:"问答 · 小学生的大问题"},
+  {src:"images/green_23.jpg", w:1500, h:1500, cap:"问答 · 小学生的大问题"},
+];
+
 var TEAMS = [
   {role:"队长",   names:["邓霁恒"]},
   {role:"副队长", names:["刘明辉","卢婧雅","阳艺灵"]},
@@ -932,7 +1049,7 @@ function closeLb(){
 function paintLb(){
   var p = lbList[lbIndex];
   lbImg.src = p.src;
-  lbCat.textContent = p.cat ? catName(p.cat) : "支教日记";
+  lbCat.textContent = p.cap ? p.cap : (p.cat ? catName(p.cat) : "支教日记");
   lbIdx.textContent = String(lbIndex+1).padStart(2,"0") + " / " + String(lbList.length).padStart(2,"0");
 }
 function stepLb(d){
@@ -1022,6 +1139,59 @@ window.addEventListener("keydown", function(e){
   if(e.key==="ArrowLeft") dStep(-1);
   if(e.key==="ArrowRight") dStep(1);
 });
+
+/* ============================================================
+   问答 · 横向照片墙(连续拖拽 / 滚轮横滑 / 点击全屏)
+   ============================================================ */
+function buildQaWall(elId, list, title, sub){
+  var box = document.getElementById(elId);
+  var head = document.createElement("div"); head.className = "qa-head";
+  var dot=document.createElement("span");dot.className="qa-dot";
+  var t=document.createElement("span");t.className="qa-title";t.textContent=title;
+  var sb=document.createElement("span");sb.className="qa-sub";sb.textContent=sub;
+  var hint=document.createElement("span");hint.className="qa-hint";hint.textContent="按住拖动 · 左右连续浏览";
+  head.appendChild(dot);head.appendChild(t);head.appendChild(sb);head.appendChild(hint);
+  var rail=document.createElement("div");rail.className="qa-rail";rail.dataset.dragged="0";
+  var mobile = window.matchMedia("(max-width:600px)").matches;
+  var H  = mobile ? [232,206,250,220,238,212] : [300,256,320,276,304,264];
+  var MT = mobile ? [0,12,6,0,10,4]      : [0,22,10,0,16,6];
+  var ROT=[-.9,.7,-.5,1,.4,-.7];
+  list.forEach(function(p,i){
+    var card=document.createElement("figure");card.className="qa-card";
+    var h=H[i%H.length], w=Math.round(h*p.w/p.h);
+    card.style.height=h+"px";card.style.width=w+"px";
+    card.style.marginTop=MT[i%MT.length]+"px";
+    card.style.transform="rotate("+ROT[i%ROT.length]+"deg)";
+    var im=document.createElement("img");im.src=p.src;im.alt=title;im.decoding="async";
+    card.appendChild(im);
+    (function(idx){card.addEventListener("click",function(){ if(rail.dataset.dragged==="1")return; openLb(list,idx); });})(i);
+    rail.appendChild(card);
+  });
+  box.appendChild(head);box.appendChild(rail);
+  /* 鼠标按住拖拽,连续滚动 */
+  var down=false,sx=0,sl=0,moved=0;
+  rail.addEventListener("mousedown",function(e){
+    down=true;moved=0;sx=e.pageX;sl=rail.scrollLeft;rail.classList.add("grabbing");e.preventDefault();
+  });
+  window.addEventListener("mousemove",function(e){
+    if(!down)return;var dx=e.pageX-sx;moved=Math.max(moved,Math.abs(dx));
+    rail.scrollLeft=sl-dx;rail.dataset.dragged=moved>6?"1":"0";
+  });
+  window.addEventListener("mouseup",function(){
+    if(!down)return;down=false;rail.classList.remove("grabbing");
+    setTimeout(function(){rail.dataset.dragged="0";},0);
+  });
+  rail.addEventListener("mouseleave",function(){ if(down){down=false;rail.classList.remove("grabbing");} });
+  /* 纵向滚轮转横向 */
+  rail.addEventListener("wheel",function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
+      var before=rail.scrollLeft;rail.scrollLeft+=e.deltaY;
+      if(rail.scrollLeft!==before)e.preventDefault();
+    }
+  },{passive:false});
+}
+buildQaWall("qaRed", QA_RED, "大学生的小问题", "我们提问 · 孩子们作答");
+buildQaWall("qaGreen", QA_GREEN, "小学生的大问题", "孩子提问 · 我们认真回答");
 
 </script>
 </body>
