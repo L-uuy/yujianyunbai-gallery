@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喻见云柏 · 华中科技大学支教队云南双柏纪实影像</title>
+<meta name="description" content="华中科技大学喻见云柏支教队赴云南省楚雄彝族自治州双柏县支教纪实影像集">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ============================================================
+   设计 token —— 纸白基底 × 松针绿（呼应「云柏」）
+   ============================================================ */
+:root{
+  --bg:#f4f5f2;
+  --paper:#fcfcfb;
+  --ink:#202623;
+  --ink-2:#5d665f;
+  --ink-3:#949c95;
+  --line:#e2e5df;
+  --pine:#3c6b59;
+  --pine-deep:#2b4e41;
+  --pine-soft:#ebf1ed;
+  --shadow:0 18px 48px -18px rgba(32,38,35,.28);
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --nav-h:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.7;
+}
+img{display:block;width:100%;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+::selection{background:var(--pine);color:#fff;}
+
+/* ============================================================
+   顶部导航
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,5vw,64px);
+  color:#fff;
+  transition:background .4s var(--ease),color .4s var(--ease),box-shadow .4s var(--ease);
+}
+.nav.scrolled{
+  background:rgba(244,245,242,.86);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  color:var(--ink);
+  box-shadow:0 1px 0 var(--line);
+}
+.brand{display:flex;align-items:baseline;gap:12px;text-decoration:none;color:inherit;}
+.brand-cn{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:.22em;}
+.brand-en{font-size:10px;letter-spacing:.34em;opacity:.62;font-weight:400;}
+.nav-links{display:flex;gap:clamp(18px,3vw,40px);}
+.nav-links a{
+  color:inherit;text-decoration:none;font-size:13.5px;letter-spacing:.14em;
+  opacity:.78;transition:opacity .25s;position:relative;padding:6px 0;
+}
+.nav-links a:hover{opacity:1;}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:currentColor;
+  transition:width .3s var(--ease);
+}
+.nav-links a:hover::after{width:100%;}
+@media(max-width:640px){.brand-en{display:none;}.nav-links a{font-size:12.5px;}}
+
+/* ============================================================
+   Hero 封面
+   ============================================================ */
+.hero{
+  position:relative;height:100vh;min-height:560px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;color:#fff;text-align:center;
+}
+.hero-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transform:scale(1.06);
+  animation:heroSlow 14s var(--ease) forwards;
+}
+@keyframes heroSlow{to{transform:scale(1);}}
+.hero-mask{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(20,26,23,.34) 0%,rgba(20,26,23,.12) 38%,rgba(20,26,23,.52) 100%);
+}
+.hero-inner{position:relative;z-index:2;padding:0 24px;max-width:860px;}
+.hero-eyebrow{
+  font-size:12px;letter-spacing:.5em;text-indent:.5em;
+  opacity:.85;font-weight:300;margin-bottom:30px;
+  display:flex;align-items:center;gap:18px;justify-content:center;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:"";width:46px;height:1px;background:rgba(255,255,255,.55);
+}
+.hero-title{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(52px,10vw,118px);
+  letter-spacing:.16em;text-indent:.16em;line-height:1.1;
+  margin-bottom:26px;
+  text-shadow:0 4px 30px rgba(0,0,0,.25);
+}
+.hero-sub{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(15px,2.2vw,21px);letter-spacing:.3em;text-indent:.3em;
+  opacity:.94;margin-bottom:14px;
+}
+.hero-loc{
+  font-size:12.5px;letter-spacing:.28em;text-indent:.28em;
+  font-weight:300;opacity:.72;
+}
+.hero-scroll{
+  position:absolute;left:50%;bottom:38px;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;
+  color:#fff;font-size:10.5px;letter-spacing:.34em;opacity:.8;
+}
+.hero-scroll .line{width:1px;height:46px;background:rgba(255,255,255,.6);overflow:hidden;position:relative;}
+.hero-scroll .line::after{
+  content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:#fff;
+  animation:scrollHint 1.8s var(--ease) infinite;
+}
+@keyframes scrollHint{0%{top:-50%;}100%{top:110%;}}
+
+/* ============================================================
+   通用章节
+   ============================================================ */
+.section{padding:clamp(72px,10vw,128px) clamp(20px,5vw,64px);max-width:1320px;margin:0 auto;}
+.sec-head{margin-bottom:52px;}
+.sec-eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-size:11px;letter-spacing:.4em;color:var(--pine);
+  font-weight:500;margin-bottom:16px;
+}
+.sec-eyebrow::before{content:"";width:30px;height:1px;background:var(--pine);}
+.sec-title{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4vw,42px);letter-spacing:.08em;}
+.sec-note{margin-top:14px;color:var(--ink-2);font-size:14.5px;max-width:560px;font-weight:300;}
+
+/* ============================================================
+   分类导航
+   ============================================================ */
+.tabs{
+  display:flex;flex-wrap:wrap;gap:6px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:44px;position:relative;
+}
+.tab{
+  position:relative;
+  padding:14px clamp(14px,2.4vw,26px) 16px;
+  font-size:clamp(13.5px,1.5vw,15.5px);letter-spacing:.16em;
+  color:var(--ink-3);transition:color .3s;
+  white-space:nowrap;
+}
+.tab:hover{color:var(--ink-2);}
+.tab.active{color:var(--pine-deep);font-weight:500;}
+.tab-indicator{
+  position:absolute;bottom:-1px;height:2px;background:var(--pine);
+  transition:left .45s var(--ease),width .45s var(--ease);
+}
+
+/* ============================================================
+   瀑布流
+   ============================================================ */
+.gallery-stage{
+  transition:opacity .34s var(--ease),transform .34s var(--ease);
+  will-change:opacity,transform;
+}
+.gallery-stage.is-leaving{opacity:0;transform:translateX(-28px);}
+.gallery-stage.is-entering{opacity:0;transform:translateX(28px);}
+.masonry{display:block;}
+/* 分章相册 */
+.album-group{margin-bottom:clamp(58px,7vw,96px);}
+.album-group:last-child{margin-bottom:0;}
+.album-head{
+  display:flex;align-items:center;gap:clamp(16px,2.4vw,28px);
+  padding-bottom:22px;margin-bottom:30px;
+  border-bottom:1px solid var(--line);
+}
+.album-no{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(34px,4.6vw,52px);line-height:1;
+  color:var(--pine);letter-spacing:.04em;
+  position:relative;padding-bottom:6px;
+}
+.album-no::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;
+  background:var(--pine);opacity:.18;border-radius:2px;
+}
+.album-titles{min-width:0;}
+.album-name{
+  font-family:var(--serif);font-weight:700;letter-spacing:.1em;
+  font-size:clamp(20px,2.8vw,29px);color:var(--ink);line-height:1.25;
+}
+.album-sub{
+  margin-top:7px;font-size:12.5px;font-weight:300;
+  color:var(--ink-3);letter-spacing:.14em;
+}
+.album-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(12px,1.6vw,22px);
+  grid-auto-flow:row dense;
+  grid-auto-rows:clamp(150px,17.5vw,252px);
+}
+.shot.tall{grid-row:span 2;}
+@media(max-width:1024px){
+  .album-grid{
+    grid-template-columns:repeat(2,1fr);
+    grid-auto-rows:clamp(140px,27vw,240px);
+  }
+}
+@media(max-width:600px){
+  .album-grid{grid-template-columns:1fr;grid-auto-rows:auto;}
+  .shot{grid-row:auto !important;}
+  .shot img{height:auto;object-fit:contain;}
+  .album-head{flex-wrap:wrap;gap:12px 16px;align-items:center;}
+}
+.shot{
+  border-radius:5px;overflow:hidden;position:relative;cursor:zoom-in;
+  background:#e7e9e4;min-height:0;
+  opacity:0;transform:translateY(26px);
+  box-shadow:0 1px 2px rgba(32,38,35,.06);
+  transition:opacity .7s var(--ease),transform .7s var(--ease),box-shadow .4s var(--ease);
+}
+.shot img{height:100%;object-fit:cover;}
+.shot.in{opacity:1;transform:translateY(0);}
+.shot img{
+  transition:transform .8s var(--ease);
+}
+.shot:hover{box-shadow:var(--shadow);}
+.shot:hover img{transform:scale(1.035);}
+.shot::after{
+  content:"";position:absolute;inset:0;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+  pointer-events:none;
+}
+/* ============================================================
+   支教日记 · 单张轮播(左右滑动切换)
+   ============================================================ */
+.diary{background:linear-gradient(180deg,#ecefe8 0%,var(--bg) 100%);}
+.diary-stage{position:relative;margin-top:6px;}
+.diary-viewport{overflow:hidden;}
+.diary-track{display:flex;transition:transform .55s var(--ease);will-change:transform;}
+.diary-slide{
+  flex:0 0 100%;
+  display:flex;align-items:center;justify-content:center;
+  padding:10px 72px;user-select:none;
+}
+.diary-slide img{
+  width:auto;height:auto;max-width:min(72vw,430px);max-height:66vh;
+  border-radius:6px;cursor:zoom-in;
+  box-shadow:0 30px 70px -28px rgba(32,38,35,.45);
+  transition:transform .4s var(--ease);
+}
+.diary-slide img:hover{transform:translateY(-4px);}
+.d-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(252,252,251,.92);border:1px solid var(--line);
+  color:var(--pine-deep);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px -10px rgba(32,38,35,.3);
+  transition:background .25s,color .25s,opacity .25s;
+}
+.d-arrow:hover{background:var(--pine);color:#fff;}
+.d-arrow.prev{left:clamp(4px,3vw,42px);}
+.d-arrow.next{right:clamp(4px,3vw,42px);}
+.d-arrow:disabled{opacity:.28;pointer-events:none;}
+.diary-foot{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+.diary-count{font-family:var(--serif);font-size:15px;letter-spacing:.2em;color:var(--ink-2);}
+.diary-count b{color:var(--pine-deep);font-weight:700;font-size:19px;}
+.diary-dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:680px;}
+.d-dot{width:7px;height:7px;border-radius:50%;background:#c6ccc4;transition:background .3s,transform .3s;}
+.d-dot.on{background:var(--pine);transform:scale(1.4);}
+.diary-hint{font-size:11.5px;letter-spacing:.24em;color:var(--ink-3);font-weight:300;}
+@media(max-width:600px){
+  .diary-slide{padding:6px 46px;}
+  .diary-slide img{max-width:84vw;max-height:60vh;}
+  .d-arrow{width:42px;height:42px;}
+}
+.empty{
+  grid-column:1/-1;text-align:center;color:var(--ink-3);
+  padding:80px 0;font-size:14px;letter-spacing:.2em;
+}
+
+/* ============================================================
+   关于区
+   ============================================================ */
+.about-wrap{
+  display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(36px,6vw,90px);
+  align-items:start;
+}
+@media(max-width:900px){.about-wrap{grid-template-columns:1fr;}}
+.about-lead{
+  font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);
+  line-height:1.9;letter-spacing:.04em;font-weight:600;
+  margin:8px 0 22px;color:var(--ink);
+}
+.about-text{color:var(--ink-2);font-size:14.5px;font-weight:300;margin-bottom:16px;}
+.about-meta{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;
+}
+.meta-chip{
+  font-size:12px;letter-spacing:.14em;color:var(--pine-deep);
+  border:1px solid #cfdcd5;background:var(--pine-soft);
+  padding:7px 14px;border-radius:999px;
+}
+.teams{display:flex;flex-direction:column;gap:6px;}
+.team-row{
+  display:grid;grid-template-columns:96px 1fr;gap:18px;
+  padding:20px 4px;border-bottom:1px solid var(--line);
+  align-items:baseline;
+}
+.team-row:first-child{border-top:1px solid var(--line);}
+.team-role{
+  font-family:var(--serif);font-size:15px;color:var(--pine-deep);
+  letter-spacing:.18em;font-weight:600;
+}
+.team-names{
+  display:flex;flex-wrap:wrap;gap:10px 22px;
+  font-size:15.5px;letter-spacing:.12em;color:var(--ink);
+}
+.team-names span{position:relative;padding-bottom:2px;}
+@media(max-width:560px){.team-row{grid-template-columns:1fr;gap:8px;}}
+
+/* ============================================================
+   页脚
+   ============================================================ */
+.footer{
+  border-top:1px solid var(--line);
+  padding:46px clamp(20px,5vw,64px);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  color:var(--ink-3);font-size:12px;letter-spacing:.18em;
+  max-width:1320px;margin:0 auto;
+}
+.footer .f-brand{font-family:var(--serif);color:var(--ink-2);font-weight:600;letter-spacing:.22em;}
+
+/* ============================================================
+   Lightbox
+   ============================================================ */
+.lb{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(19,23,21,.94);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s;
+}
+.lb.open{opacity:1;visibility:visible;}
+.lb-imgwrap{
+  max-width:min(90vw,1200px);max-height:86vh;
+  display:flex;align-items:center;justify-content:center;
+}
+.lb-imgwrap img{
+  max-width:90vw;max-height:84vh;width:auto;height:auto;
+  border-radius:4px;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.7);
+  transform:scale(.96);transition:transform .35s var(--ease);
+}
+.lb.open .lb-imgwrap img{transform:scale(1);}
+.lb-btn{
+  position:absolute;width:52px;height:52px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.86);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s,border-color .25s,color .25s;
+}
+.lb-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6);color:#fff;}
+.lb-close{top:26px;right:26px;}
+.lb-prev{left:24px;top:50%;transform:translateY(-50%);}
+.lb-next{right:24px;top:50%;transform:translateY(-50%);}
+.lb-prev:hover,.lb-next:hover{transform:translateY(-50%);}
+.lb-cap{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,.82);font-size:12.5px;letter-spacing:.26em;
+  display:flex;gap:16px;align-items:center;
+}
+.lb-cap .dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.5);}
+@media(max-width:600px){
+  .lb-prev{left:10px;}.lb-next{right:10px;}
+  .lb-btn{width:44px;height:44px;}
+}
+
+/* 入场观察 */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+  html{scroll-behavior:auto;}
+  .shot,.reveal{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 顶部导航 ===== -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" data-anchor="top">
+    <span class="brand-cn">喻见云柏</span>
+    <span class="brand-en">YUJIAN YUNBAI</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#gallery" data-anchor="gallery">影像集</a>
+    <a href="#diary" data-anchor="diary">支教日记</a>
+    <a href="#about" data-anchor="about">支教队</a>
+  </nav>
+</header>
+
+<!-- ===== Hero 封面 ===== -->
+<section class="hero" id="top">
+  <div class="hero-img" style="background-image:url('images/hero.jpg');"></div>
+  <div class="hero-mask"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">华中科技大学</div>
+    <h1 class="hero-title">喻见云柏</h1>
+    <p class="hero-sub">云南双柏支教纪实影像</p>
+    <p class="hero-loc">云南省楚雄彝族自治州双柏县</p>
+  </div>
+  <button class="hero-scroll" data-anchor="gallery" aria-label="向下浏览">
+    <span>SCROLL</span>
+    <span class="line"></span>
+  </button>
+</section>
+
+<main>
+<!-- ===== 影像集 ===== -->
+<section class="section" id="gallery">
+  <div class="sec-head reveal">
+    <div class="sec-eyebrow">GALLERY</div>
+    <h2 class="sec-title">影像集</h2>
+    <p class="sec-note">访馆、匠心、启蒙、联动、日常与告别——六个篇章，记录在双柏度过的支教时光。点击任意照片可全屏查看。</p>
+  </div>
+
+  <div class="tabs" id="tabs" role="tablist">
+    <!-- JS 渲染分类按钮与滑动指示条 -->
+  </div>
+
+  <div class="gallery-stage" id="stage">
+    <div class="masonry" id="masonry"></div>
+  </div>
+</section>
+
+
+<!-- ===== 支教日记(独立栏目 · 单张轮播) ===== -->
+<section class="section diary" id="diary">
+  <div class="sec-head reveal">
+    <div class="sec-eyebrow">DIARY</div>
+    <h2 class="sec-title">支教日记</h2>
+    <p class="sec-note">每一天的相遇与感动，都写进了支教日记。左右滑动，逐页翻阅这个夏天。</p>
+  </div>
+  <div class="diary-stage reveal">
+    <button class="d-arrow prev" id="dPrev" aria-label="上一篇">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+    </button>
+    <div class="diary-viewport" id="dView">
+      <div class="diary-track" id="dTrack"></div>
+    </div>
+    <button class="d-arrow next" id="dNext" aria-label="下一篇">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+    </button>
+  </div>
+  <div class="diary-foot">
+    <div class="diary-count"><b id="dCur">01</b> / <span id="dTotal">17</span></div>
+    <div class="diary-dots" id="dDots"></div>
+    <div class="diary-hint">左右滑动 · 方向键切换 · 点击海报全屏阅读</div>
+  </div>
+</section>
+
+<!-- ===== 关于 ===== -->
+<section class="section" id="about">
+  <div class="sec-head reveal">
+    <div class="sec-eyebrow">ABOUT</div>
+    <h2 class="sec-title">关于这次支教</h2>
+  </div>
+  <div class="about-wrap">
+    <div class="reveal">
+      <p class="about-lead">滇中绿海深处，一段与孩子们相互陪伴的夏日。</p>
+      <p class="about-text">
+        双柏县地处云南省中部、楚雄彝族自治州南部，位于哀牢山脉以东，楚雄、玉溪、普洱三州市交界处。境内群山叠翠，森林覆盖率约 84%，是红河源头的重要生态屏障，素有「滇中绿海明珠」之称。
+      </p>
+      <p class="about-text">
+        华中科技大学喻见云柏支教队来到这里，走进山间的校园，站上讲台，也走进孩子们的日常。
+      </p>
+      <div class="about-meta">
+        <span class="meta-chip">云南 · 楚雄双柏</span>
+        <span class="meta-chip">哀牢山东麓</span>
+        <span class="meta-chip">13 名队员</span>
+      </div>
+    </div>
+    <div class="teams reveal" id="teams">
+      <!-- JS 渲染队员名单 -->
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <span class="f-brand">华中科技大学 · 喻见云柏支教队</span>
+  <span>YUNNAN SHUANGBAI · 2026</span>
+</footer>
+
+<!-- ===== Lightbox ===== -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="照片全屏查看">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="关闭">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+  </button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="上一张">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+  </button>
+  <div class="lb-imgwrap"><img id="lbImg" src="" alt="支教照片"></div>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="下一张">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+  </button>
+  <div class="lb-cap">
+    <span id="lbCat"></span>
+    <span class="dot"></span>
+    <span id="lbIdx"></span>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   数据层：照片（占位图，替换真实照片时只需改这里的 src）
+   ============================================================ */
+var CATS = [
+  {id:"all",      name:"全部"},
+  {id:"fangguan", name:"访馆 · 非遗探寻", no:"壹", sub:"寻访非遗展馆，触摸彝乡文脉"},
+  {id:"jiangxin", name:"匠心 · 文脉传承", no:"贰", sub:"以手作传承匠心，让文脉走进课堂"},
+  {id:"qimeng",   name:"启蒙 · 多彩课堂", no:"叁", sub:"用多彩课程，完成知识与兴趣的启蒙"},
+  {id:"liandong", name:"联动 · 聚力同行", no:"肆", sub:"多方联动，在同行中汇聚力量"},
+  {id:"richang",  name:"日常 · 烟火温情", no:"伍", sub:"烟火气里的朝夕相伴，是最真实的支教"},
+  {id:"gaobie",   name:"告别 · 硕果满枝", no:"陆", sub:"离别之际，满枝硕果皆是成长"}
+];
+
+/* 全局顺序按篇章展开、横竖交错，让瀑布流节奏均衡；ph 标记为临时占位图，待真实照片替换 */
+var PHOTOS = [
+  /* 访馆 · 非遗探寻 */
+  {src:"images/fangguan_01.jpg", w:1600, h:1067, cat:"fangguan"},
+  {src:"images/fangguan_02.jpg", w:1600, h:1067, cat:"fangguan"},
+  {src:"images/fangguan_03.jpg", w:1600, h:1201, cat:"fangguan"},
+  {src:"images/fangguan_04.jpg", w:1600, h:1200, cat:"fangguan"},
+  {src:"images/fangguan_05.jpg", w:1600, h:900, cat:"fangguan"},
+  {src:"images/fangguan_06.jpg", w:1600, h:1200, cat:"fangguan"},
+  {src:"images/fangguan_07.jpg", w:1600, h:1200, cat:"fangguan"},
+  {src:"images/fangguan_08.jpg", w:1200, h:1600, cat:"fangguan"},
+  {src:"images/fangguan_09.jpg", w:1600, h:1200, cat:"fangguan"},
+  {src:"images/fangguan_10.jpg", w:1600, h:1200, cat:"fangguan"},
+  {src:"images/fangguan_11.jpg", w:1600, h:1200, cat:"fangguan"},
+  /* 匠心 · 文脉传承 */
+  {src:"images/jiangxin_01.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_02.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_03.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_04.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_05.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_06.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_07.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_08.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_09.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_10.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_11.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_12.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_13.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_14.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_15.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_16.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_17.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_18.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_19.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_20.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_21.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_22.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_23.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_24.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_25.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_27.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_28.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_29.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_30.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_31.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_32.jpg", w:1600, h:1200, cat:"jiangxin"},
+  {src:"images/jiangxin_33.jpg", w:1600, h:1200, cat:"jiangxin"},
+  {src:"images/jiangxin_34.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_35.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_36.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_37.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_38.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_39.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_40.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_41.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_42.jpg", w:1600, h:1067, cat:"jiangxin"},
+  {src:"images/jiangxin_43.jpg", w:1600, h:1200, cat:"jiangxin"},
+  {src:"images/jiangxin_44.jpg", w:1600, h:1063, cat:"jiangxin"},
+  {src:"images/jiangxin_45.jpg", w:1600, h:1063, cat:"jiangxin"},
+  {src:"images/jiangxin_46.jpg", w:1600, h:1063, cat:"jiangxin"},
+  {src:"images/jiangxin_47.jpg", w:1600, h:1200, cat:"jiangxin"},
+  {src:"images/jiangxin_48.jpg", w:1600, h:1200, cat:"jiangxin"},
+  /* 启蒙 · 多彩课堂 */
+  {src:"images/qimeng_01.jpg", w:1600, h:1200, cat:"qimeng"},
+  {src:"images/qimeng_02.jpg", w:1600, h:1063, cat:"qimeng"},
+  {src:"images/qimeng_03.jpg", w:1600, h:1200, cat:"qimeng"},
+  {src:"images/qimeng_04.jpg", w:1600, h:1200, cat:"qimeng"},
+  {src:"images/qimeng_05.jpg", w:1600, h:1205, cat:"qimeng"},
+  {src:"images/qimeng_06.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_07.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_08.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_09.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_10.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_11.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_12.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_13.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_14.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_15.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_16.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_17.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_18.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_19.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_20.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_21.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_22.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_23.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_24.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_25.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_26.jpg", w:1067, h:1600, cat:"qimeng"},
+  {src:"images/qimeng_27.jpg", w:1067, h:1600, cat:"qimeng"},
+  {src:"images/qimeng_28.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_29.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_30.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_31.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_32.jpg", w:1600, h:1205, cat:"qimeng"},
+  {src:"images/qimeng_33.jpg", w:1600, h:1205, cat:"qimeng"},
+  {src:"images/qimeng_34.jpg", w:1600, h:1205, cat:"qimeng"},
+  {src:"images/qimeng_35.jpg", w:1600, h:1205, cat:"qimeng"},
+  {src:"images/qimeng_36.jpg", w:1600, h:1205, cat:"qimeng"},
+  {src:"images/qimeng_37.jpg", w:1600, h:1200, cat:"qimeng"},
+  {src:"images/qimeng_38.jpg", w:1600, h:1200, cat:"qimeng"},
+  {src:"images/qimeng_39.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_40.jpg", w:1600, h:1067, cat:"qimeng"},
+  {src:"images/qimeng_41.jpg", w:1600, h:1063, cat:"qimeng"},
+  {src:"images/qimeng_42.jpg", w:1600, h:1063, cat:"qimeng"},
+  {src:"images/qimeng_43.jpg", w:1600, h:1200, cat:"qimeng"},
+  {src:"images/qimeng_44.jpg", w:1600, h:1063, cat:"qimeng"},
+  {src:"images/qimeng_45.jpg", w:1600, h:1063, cat:"qimeng"},
+  {src:"images/qimeng_46.jpg", w:1600, h:1063, cat:"qimeng"},
+  /* 联动 · 聚力同行 */
+  {src:"images/liandong_01.jpg", w:1600, h:1200, cat:"liandong"},
+  {src:"images/liandong_02.jpg", w:1600, h:1200, cat:"liandong"},
+  {src:"images/liandong_03.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_04.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_05.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_06.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_07.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_08.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_09.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_10.jpg", w:1600, h:1200, cat:"liandong"},
+  {src:"images/liandong_11.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_12.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_13.jpg", w:1600, h:1067, cat:"liandong"},
+  {src:"images/liandong_14.jpg", w:1600, h:1311, cat:"liandong"},
+  /* 告别 · 硕果满枝 */
+  {src:"images/gaobie_01.jpg", w:1600, h:1067, cat:"gaobie"},
+  {src:"images/gaobie_02.jpg", w:1600, h:1067, cat:"gaobie"},
+  {src:"images/gaobie_03.jpg", w:1600, h:1067, cat:"gaobie"},
+  {src:"images/gaobie_04.jpg", w:1600, h:1067, cat:"gaobie"},
+  {src:"images/gaobie_05.jpg", w:1600, h:1067, cat:"gaobie"},
+  {src:"images/gaobie_06.jpg", w:1600, h:1200, cat:"gaobie"},
+  {src:"images/gaobie_07.jpg", w:1600, h:1063, cat:"gaobie"},
+  {src:"images/gaobie_08.jpg", w:1600, h:1063, cat:"gaobie"},
+  {src:"images/gaobie_09.jpg", w:1600, h:1063, cat:"gaobie"},
+  /* 支教日记 */
+  /* 日常 · 烟火温情 */
+  {src:"images/richang_01.jpg", w:1600, h:1063, cat:"richang"},
+  {src:"images/richang_02.jpg", w:1600, h:1067, cat:"richang"},
+  {src:"images/richang_03.jpg", w:1600, h:1067, cat:"richang"},
+  {src:"images/richang_04.jpg", w:1362, h:1022, cat:"richang"},
+  {src:"images/richang_05.jpg", w:1600, h:1200, cat:"richang"},
+  {src:"images/richang_06.jpg", w:1600, h:1200, cat:"richang"},
+  {src:"images/richang_07.jpg", w:1600, h:1200, cat:"richang"},
+  {src:"images/richang_08.jpg", w:1600, h:1067, cat:"richang"},
+  {src:"images/richang_09.jpg", w:1600, h:1067, cat:"richang"},
+  {src:"images/richang_10.jpg", w:1600, h:900, cat:"richang"},
+  {src:"images/richang_11.jpg", w:1600, h:902, cat:"richang"},
+  {src:"images/richang_12.jpg", w:1600, h:1200, cat:"richang"},
+  {src:"images/richang_13.jpg", w:1320, h:991, cat:"richang"},
+  {src:"images/richang_14.jpg", w:1136, h:1600, cat:"richang"},
+  {src:"images/richang_15.jpg", w:1165, h:1600, cat:"richang"},
+  {src:"images/richang_16.jpg", w:1180, h:1600, cat:"richang"},
+  {src:"images/richang_17.jpg", w:1174, h:1600, cat:"richang"},
+  {src:"images/richang_18.jpg", w:1600, h:1199, cat:"richang"},
+  {src:"images/richang_19.jpg", w:1600, h:936, cat:"richang"},
+];
+
+var DIARY = [
+  {src:"images/diary_01.jpg", w:987, h:1400},
+  {src:"images/diary_02.jpg", w:987, h:1400},
+  {src:"images/diary_03.jpg", w:1047, h:1400},
+  {src:"images/diary_04.jpg", w:987, h:1400},
+  {src:"images/diary_05.jpg", w:987, h:1400},
+  {src:"images/diary_06.jpg", w:987, h:1400},
+  {src:"images/diary_07.jpg", w:987, h:1400},
+  {src:"images/diary_08.jpg", w:1047, h:1400},
+  {src:"images/diary_09.jpg", w:1047, h:1400},
+  {src:"images/diary_10.jpg", w:968, h:1400},
+  {src:"images/diary_11.jpg", w:987, h:1400},
+  {src:"images/diary_12.jpg", w:1047, h:1400},
+  {src:"images/diary_13.jpg", w:1047, h:1400},
+  {src:"images/diary_14.jpg", w:1047, h:1400},
+  {src:"images/diary_15.jpg", w:1047, h:1400},
+  {src:"images/diary_16.jpg", w:1047, h:1400},
+  {src:"images/diary_17.jpg", w:906, h:1210},
+];
+
+var TEAMS = [
+  {role:"队长",   names:["邓霁恒"]},
+  {role:"副队长", names:["刘明辉","卢婧雅","阳艺灵"]},
+  {role:"通讯员", names:["徐非凡","李依然","马英杰","张翰"]},
+  {role:"安全员", names:["李思锜","曾云龙"]},
+  {role:"班主任", names:["李仲翔","谢璟程","李伊昀"]}
+];
+
+var catName = function(id){
+  for(var i=0;i<CATS.length;i++){ if(CATS[i].id===id) return CATS[i].name; }
+  return "";
+};
+
+/* ============================================================
+   顶部导航：滚动后切换为纸白
+   ============================================================ */
+var nav = document.getElementById("nav");
+var onScrollNav = function(){
+  if(window.pageYOffset > window.innerHeight * 0.7) nav.classList.add("scrolled");
+  else nav.classList.remove("scrolled");
+};
+window.addEventListener("scroll", onScrollNav, {passive:true});
+onScrollNav();
+
+/* 平滑锚点（不使用 scrollIntoView） */
+document.querySelectorAll("[data-anchor]").forEach(function(el){
+  el.addEventListener("click", function(e){
+    e.preventDefault();
+    var target = document.getElementById(el.getAttribute("data-anchor"));
+    if(!target) return;
+    var y = target.getBoundingClientRect().top + window.pageYOffset - 56;
+    window.scrollTo({top:y, behavior:"smooth"});
+  });
+});
+
+/* ============================================================
+   分类 Tabs
+   ============================================================ */
+var tabsEl = document.getElementById("tabs");
+var activeCat = "all";
+
+CATS.forEach(function(c, idx){
+  var b = document.createElement("button");
+  b.className = "tab" + (idx===0 ? " active" : "");
+  b.setAttribute("role","tab");
+  b.dataset.cat = c.id;
+  b.textContent = c.name;
+  b.addEventListener("click", function(){ switchCat(c.id); });
+  tabsEl.appendChild(b);
+});
+var indicator = document.createElement("span");
+indicator.className = "tab-indicator";
+tabsEl.appendChild(indicator);
+
+function moveIndicator(){
+  var active = tabsEl.querySelector(".tab.active");
+  if(!active) return;
+  indicator.style.left = active.offsetLeft + "px";
+  indicator.style.width = active.offsetWidth + "px";
+}
+window.addEventListener("resize", moveIndicator);
+setTimeout(moveIndicator, 60);
+if(document.fonts && document.fonts.ready){ document.fonts.ready.then(moveIndicator); }
+
+/* ============================================================
+   瀑布流渲染 + 分类切换（滑动平移过渡）
+   ============================================================ */
+var stage = document.getElementById("stage");
+var masonry = document.getElementById("masonry");
+var switchLock = false;
+
+function buildShot(p, list, i, animate){
+  var fig = document.createElement("figure");
+  var isTall = p.h > p.w * 1.1;
+  fig.className = "shot" + (isTall ? " tall" : "");
+  if(animate){ fig.style.transitionDelay = Math.min(i*40, 320) + "ms"; }
+  var img = document.createElement("img");
+  img.src = p.src;
+  img.alt = catName(p.cat) + "照片";
+  img.loading = "lazy";
+  fig.appendChild(img);
+  fig.addEventListener("click", function(){ openLb(list, i); });
+  return fig;
+}
+
+function buildGroup(catDef, animate){
+  var list = PHOTOS.filter(function(p){ return p.cat===catDef.id; });
+  var group = document.createElement("section");
+  group.className = "album-group";
+
+  var head = document.createElement("header");
+  head.className = "album-head";
+  var no = document.createElement("span");
+  no.className = "album-no";
+  no.textContent = catDef.no;
+  var titles = document.createElement("div");
+  titles.className = "album-titles";
+  var name = document.createElement("div");
+  name.className = "album-name";
+  name.textContent = catDef.name;
+  var sub = document.createElement("div");
+  sub.className = "album-sub";
+  sub.textContent = catDef.sub;
+  titles.appendChild(name);
+  titles.appendChild(sub);
+  head.appendChild(no);
+  head.appendChild(titles);
+
+  var grid = document.createElement("div");
+  grid.className = "album-grid";
+  list.forEach(function(p, i){ grid.appendChild(buildShot(p, list, i, animate)); });
+
+  group.appendChild(head);
+  group.appendChild(grid);
+  return group;
+}
+
+function renderMasonry(cat, animate){
+  masonry.innerHTML = "";
+  var groups = cat==="all" ? CATS.slice(1) : CATS.filter(function(c){ return c.id===cat; });
+  groups.forEach(function(c){ masonry.appendChild(buildGroup(c, animate)); });
+  /* 下一帧统一触发入场 */
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      Array.prototype.forEach.call(masonry.querySelectorAll(".shot"), function(n){
+        n.classList.add("in");
+      });
+    });
+  });
+}
+
+function switchCat(cat){
+  if(cat===activeCat || switchLock) return;
+  activeCat = cat;
+  switchLock = true;
+
+  Array.prototype.forEach.call(tabsEl.querySelectorAll(".tab"), function(t){
+    t.classList.toggle("active", t.dataset.cat===cat);
+  });
+  moveIndicator();
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce){
+    renderMasonry(cat, false);
+    switchLock = false;
+    return;
+  }
+  /* 旧内容向左滑出 → 新内容从右滑入 */
+  stage.classList.add("is-leaving");
+  setTimeout(function(){
+    renderMasonry(cat, true);
+    stage.classList.remove("is-leaving");
+    stage.classList.add("is-entering");
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ stage.classList.remove("is-entering"); });
+    });
+    setTimeout(function(){ switchLock = false; }, 420);
+  }, 340);
+}
+
+renderMasonry("all", true);
+
+/* 滚动入场（章节级） */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+  });
+},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+/* ============================================================
+   队员名单
+   ============================================================ */
+var teamsEl = document.getElementById("teams");
+TEAMS.forEach(function(t){
+  var row = document.createElement("div");
+  row.className = "team-row";
+  var role = document.createElement("div");
+  role.className = "team-role";
+  role.textContent = t.role;
+  var names = document.createElement("div");
+  names.className = "team-names";
+  t.names.forEach(function(n){
+    var s = document.createElement("span");
+    s.textContent = n;
+    names.appendChild(s);
+  });
+  row.appendChild(role);
+  row.appendChild(names);
+  teamsEl.appendChild(row);
+});
+
+/* ============================================================
+   Lightbox
+   ============================================================ */
+var lb = document.getElementById("lb");
+var lbImg = document.getElementById("lbImg");
+var lbCat = document.getElementById("lbCat");
+var lbIdx = document.getElementById("lbIdx");
+var lbList = [], lbIndex = 0;
+
+function openLb(list, idx){
+  lbList = list; lbIndex = idx;
+  paintLb();
+  lb.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLb(){
+  lb.classList.remove("open");
+  document.body.style.overflow = "";
+}
+function paintLb(){
+  var p = lbList[lbIndex];
+  lbImg.src = p.src;
+  lbCat.textContent = p.cat ? catName(p.cat) : "支教日记";
+  lbIdx.textContent = String(lbIndex+1).padStart(2,"0") + " / " + String(lbList.length).padStart(2,"0");
+}
+function stepLb(d){
+  lbIndex = (lbIndex + d + lbList.length) % lbList.length;
+  paintLb();
+}
+document.getElementById("lbClose").addEventListener("click", closeLb);
+document.getElementById("lbPrev").addEventListener("click", function(e){ e.stopPropagation(); stepLb(-1); });
+document.getElementById("lbNext").addEventListener("click", function(e){ e.stopPropagation(); stepLb(1); });
+lb.addEventListener("click", function(e){ if(e.target===lb) closeLb(); });
+document.addEventListener("keydown", function(e){
+  if(!lb.classList.contains("open")) return;
+  if(e.key==="Escape") closeLb();
+  if(e.key==="ArrowLeft") stepLb(-1);
+  if(e.key==="ArrowRight") stepLb(1);
+});
+/* ============================================================
+   支教日记 · 单张轮播
+   ============================================================ */
+var dTrack = document.getElementById("dTrack");
+var dDots = document.getElementById("dDots");
+var dCur = document.getElementById("dCur");
+var dPrevBtn = document.getElementById("dPrev");
+var dNextBtn = document.getElementById("dNext");
+var dIdx = 0, dLen = DIARY.length;
+document.getElementById("dTotal").textContent = String(dLen).padStart(2,"0");
+
+DIARY.forEach(function(p,i){
+  var slide = document.createElement("div");
+  slide.className = "diary-slide";
+  var im = document.createElement("img");
+  im.src = p.src; im.alt = "支教日记 第" + (i+1) + "篇";
+  im.loading = i < 2 ? "eager" : "lazy";
+  im.addEventListener("click", function(){ openLb(DIARY, i); });
+  slide.appendChild(im);
+  dTrack.appendChild(slide);
+  var dot = document.createElement("button");
+  dot.className = "d-dot"; dot.setAttribute("aria-label","第"+(i+1)+"篇");
+  dot.addEventListener("click", function(){ goDiary(i); });
+  dDots.appendChild(dot);
+});
+
+function goDiary(i){
+  dIdx = Math.max(0, Math.min(dLen-1, i));
+  dTrack.style.transform = "translateX(-" + (dIdx*100) + "%)";
+  dCur.textContent = String(dIdx+1).padStart(2,"0");
+  Array.prototype.forEach.call(dDots.children, function(d,k){
+    d.classList.toggle("on", k===dIdx);
+  });
+  dPrevBtn.disabled = (dIdx===0);
+  dNextBtn.disabled = (dIdx===dLen-1);
+}
+function dStep(v){ goDiary(dIdx + v); }
+dPrevBtn.addEventListener("click", function(){ dStep(-1); });
+dNextBtn.addEventListener("click", function(){ dStep(1); });
+goDiary(0);
+
+/* 触摸左右滑动 */
+var dView = document.getElementById("dView"), tx0 = null, ty0 = null;
+dView.addEventListener("touchstart", function(e){
+  tx0 = e.touches[0].clientX; ty0 = e.touches[0].clientY;
+}, {passive:true});
+dView.addEventListener("touchend", function(e){
+  if(tx0===null) return;
+  var dx = e.changedTouches[0].clientX - tx0;
+  var dy = e.changedTouches[0].clientY - ty0;
+  if(Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy)){ dStep(dx < 0 ? 1 : -1); }
+  tx0 = null;
+}, {passive:true});
+
+/* 鼠标拖拽切换 */
+var mx0 = null;
+dView.addEventListener("mousedown", function(e){ mx0 = e.clientX; });
+window.addEventListener("mouseup", function(e){
+  if(mx0===null) return;
+  var dx = e.clientX - mx0;
+  if(Math.abs(dx) > 70){ dStep(dx < 0 ? 1 : -1); }
+  mx0 = null;
+});
+
+/* 方向键:仅当日记栏目在视口内、且未打开全屏查看时 */
+var diarySec = document.getElementById("diary");
+window.addEventListener("keydown", function(e){
+  var r = diarySec.getBoundingClientRect();
+  var visible = r.top < window.innerHeight*0.7 && r.bottom > window.innerHeight*0.3;
+  if(!visible || lb.classList.contains("open")) return;
+  if(e.key==="ArrowLeft") dStep(-1);
+  if(e.key==="ArrowRight") dStep(1);
+});
+
+</script>
+</body>
+</html>
