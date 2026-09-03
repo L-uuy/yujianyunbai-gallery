@@ -255,7 +255,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   padding:10px 72px;user-select:none;
 }
 .diary-slide img{
-  width:auto;height:auto;max-width:min(72vw,430px);max-height:66vh;
+  width:auto;height:auto;max-width:min(72vw,430px,100%);max-height:66vh;
   border-radius:6px;cursor:zoom-in;
   box-shadow:0 30px 70px -28px rgba(32,38,35,.45);
   transition:transform .4s var(--ease);
@@ -281,9 +281,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .d-dot.on{background:var(--pine);transform:scale(1.4);}
 .diary-hint{font-size:11.5px;letter-spacing:.24em;color:var(--ink-3);font-weight:300;}
 @media(max-width:600px){
-  .diary-slide{padding:6px 46px;}
-  .diary-slide img{max-width:84vw;max-height:60vh;}
-  .d-arrow{width:42px;height:42px;}
+  .diary-slide{padding:6px 48px;}
+  .diary-slide img{max-width:100%;max-height:60vh;}
+  .d-arrow{width:38px;height:38px;}
+  .d-arrow.prev{left:4px;}
+  .d-arrow.next{right:4px;}
 }
 .empty{
   grid-column:1/-1;text-align:center;color:var(--ink-3);
@@ -541,10 +543,8 @@ var CATS = [
 /* 全局顺序按篇章展开、横竖交错，让瀑布流节奏均衡；ph 标记为临时占位图，待真实照片替换 */
 var PHOTOS = [
   /* 访馆 · 非遗探寻 */
-  {src:"images/fangguan_01.jpg", w:1600, h:1067, cat:"fangguan"},
-  {src:"images/fangguan_02.jpg", w:1600, h:1067, cat:"fangguan"},
-  {src:"images/fangguan_03.jpg", w:1600, h:1201, cat:"fangguan"},
   {src:"images/fangguan_04.jpg", w:1600, h:1200, cat:"fangguan"},
+  {src:"images/fangguan_03.jpg", w:1600, h:1201, cat:"fangguan"},
   {src:"images/fangguan_05.jpg", w:1600, h:900, cat:"fangguan"},
   {src:"images/fangguan_06.jpg", w:1600, h:1200, cat:"fangguan"},
   {src:"images/fangguan_07.jpg", w:1600, h:1200, cat:"fangguan"},
@@ -552,6 +552,8 @@ var PHOTOS = [
   {src:"images/fangguan_09.jpg", w:1600, h:1200, cat:"fangguan"},
   {src:"images/fangguan_10.jpg", w:1600, h:1200, cat:"fangguan"},
   {src:"images/fangguan_11.jpg", w:1600, h:1200, cat:"fangguan"},
+  {src:"images/fangguan_01.jpg", w:1600, h:1067, cat:"fangguan"},
+  {src:"images/fangguan_02.jpg", w:1600, h:1067, cat:"fangguan"},
   /* 匠心 · 文脉传承 */
   {src:"images/jiangxin_01.jpg", w:1600, h:1067, cat:"jiangxin"},
   {src:"images/jiangxin_02.jpg", w:1600, h:1067, cat:"jiangxin"},
