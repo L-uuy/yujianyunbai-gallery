@@ -436,6 +436,107 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   .qa-hint{display:none;}
   .qa-rail{padding:10px 6px 16px;gap:12px;}
 }
+/* ============================================================
+   视频纪实 · 封面卡片，点击就地播放
+   ============================================================ */
+.film{background:linear-gradient(180deg,#ecefe8 0%,var(--bg) 100%);}
+.film-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:clamp(20px,3vw,38px);
+}
+.film-card{
+  position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;
+  background:#0d110f;border:1px solid var(--line);cursor:pointer;
+  box-shadow:0 18px 46px -24px rgba(20,30,26,.55);
+  transition:box-shadow .5s var(--ease),transform .5s var(--ease);
+}
+.film-card:hover{transform:translateY(-5px);box-shadow:0 30px 60px -26px rgba(20,30,26,.62);}
+.film-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease);}
+.film-card:hover .film-poster{transform:scale(1.05);}
+.film-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,17,15,.05) 0%,rgba(13,17,15,.14) 46%,rgba(13,17,15,.68) 100%);
+  transition:background .4s var(--ease);
+}
+.film-card:hover .film-veil{background:linear-gradient(180deg,rgba(13,17,15,.02) 0%,rgba(13,17,15,.22) 52%,rgba(13,17,15,.74) 100%);}
+.film-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:74px;height:74px;border-radius:50%;
+  background:rgba(252,252,251,.92);color:#202623;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 34px -10px rgba(0,0,0,.55);
+  transition:transform .45s var(--ease),background .3s;
+}
+.film-play svg{margin-left:4px;}
+.film-card:hover .film-play{transform:translate(-50%,-50%) scale(1.09);background:#fff;}
+.film-meta{
+  position:absolute;left:clamp(18px,2.4vw,30px);right:clamp(18px,2.4vw,30px);
+  bottom:clamp(16px,2.2vw,26px);color:#fff;text-align:left;
+}
+.film-name{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(18px,2.2vw,25px);letter-spacing:.06em;
+  text-shadow:0 2px 16px rgba(0,0,0,.45);
+}
+.film-sub{
+  margin-top:7px;display:flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:300;letter-spacing:.2em;color:rgba(255,255,255,.84);
+}
+.film-sub .fdot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.6);}
+.film-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;}
+.film-card.playing{cursor:default;}
+.film-card.playing:hover{transform:none;}
+.film-card.playing .film-poster,
+.film-card.playing .film-veil,
+.film-card.playing .film-play,
+.film-card.playing .film-meta{display:none;}
+@media(max-width:720px){
+  .film-grid{grid-template-columns:1fr;gap:18px;}
+  .film-play{width:60px;height:60px;}
+}
+/* 自定义「放大」：页内影院模式，不依赖系统全屏，内嵌预览/任意浏览器均可用 */
+.film-expand{
+  position:absolute;top:14px;right:14px;z-index:3;
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(13,17,15,.42);color:#fff;border:1px solid rgba(255,255,255,.28);
+  display:none;align-items:center;justify-content:center;cursor:pointer;
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  transition:background .25s var(--ease),transform .25s var(--ease);
+}
+.film-card.playing .film-expand{display:flex;}
+.film-expand:hover{background:rgba(13,17,15,.7);transform:scale(1.08);}
+/* 隐藏 webkit 原生全屏键（部分内嵌环境禁用系统全屏，统一改用上方放大按钮） */
+#filmGrid video::-webkit-media-controls-fullscreen-button,
+.film-cinema-stage video::-webkit-media-controls-fullscreen-button{display:none!important;}
+.film-cinema{
+  position:fixed;inset:0;z-index:1200;
+  background:rgba(8,10,9,.96);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(16px,5vw,64px);
+  opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s;
+}
+.film-cinema.open{opacity:1;visibility:visible;}
+.film-cinema-stage{width:100%;max-width:1280px;}
+.film-cinema-stage video{
+  width:100%;display:block;border-radius:4px;background:#000;
+  box-shadow:0 40px 120px -30px rgba(0,0,0,.85);
+}
+.film-cinema-cap{
+  margin-top:16px;color:rgba(255,255,255,.72);
+  font-size:12.5px;letter-spacing:.22em;font-weight:300;text-align:center;
+}
+.cine-close{
+  position:absolute;top:clamp(18px,3vw,34px);right:clamp(18px,3vw,34px);z-index:2;
+  width:46px;height:46px;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;
+  display:flex;align-items:center;justify-content:center;transition:background .25s;
+}
+.cine-close:hover{background:rgba(255,255,255,.22);}
+body.cinema-open{overflow:hidden;}
+@media(max-width:600px){
+  .cine-close{width:40px;height:40px;}
+  .film-expand{width:34px;height:34px;top:10px;right:10px;}
+}
 </style>
 </head>
 <body>
@@ -450,6 +551,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
     <a href="#gallery" data-anchor="gallery">影像集</a>
     <a href="#diary" data-anchor="diary">支教日记</a>
     <a href="#qa" data-anchor="qa">问答</a>
+    <a href="#film" data-anchor="film">视频纪实</a>
     <a href="#about" data-anchor="about">支教队</a>
   </nav>
 </header>
@@ -522,6 +624,16 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   </div>
   <div class="qa-block is-red reveal" id="qaRed"></div>
   <div class="qa-block is-green reveal" id="qaGreen"></div>
+</section>
+
+<!-- ===== 视频纪实 ===== -->
+<section class="section film" id="film">
+  <div class="sec-head reveal">
+    <div class="sec-eyebrow">FILM</div>
+    <h2 class="sec-title">视频纪实</h2>
+    <p class="sec-note">静态影像之外，还有两段会动的时光——走进彝绣非遗，也把非遗带进课堂。点击封面即可播放。</p>
+  </div>
+  <div class="film-grid reveal" id="filmGrid"></div>
 </section>
 
 <!-- ===== 关于 ===== -->
@@ -1192,6 +1304,86 @@ function buildQaWall(elId, list, title, sub){
 }
 buildQaWall("qaRed", QA_RED, "大学生的小问题", "我们提问 · 孩子们作答");
 buildQaWall("qaGreen", QA_GREEN, "小学生的大问题", "孩子提问 · 我们认真回答");
+
+/* ============================================================
+   视频纪实 · 封面卡片，点击就地加载并播放（不自动加载，省流）
+   ============================================================ */
+var FILMS = [
+  {src:"videos/video_01.mp4", poster:"videos/poster_01.jpg", name:"彝绣 · 针尖上的非遗", sub:"非遗寻访", dur:"04:53"},
+  {src:"videos/video_02.mp4", poster:"videos/poster_02.jpg", name:"非遗入课堂", sub:"课堂纪实", dur:"01:06"}
+];
+var filmGrid = document.getElementById("filmGrid");
+function el(tag, cls, text){
+  var n = document.createElement(tag);
+  if(cls) n.className = cls;
+  if(text!=null) n.textContent = text;
+  return n;
+}
+FILMS.forEach(function(f){
+  var card = el("div","film-card");
+  var po = el("img","film-poster"); po.src=f.poster; po.alt=f.name; po.loading="lazy";
+  var veil = el("div","film-veil");
+  var play = el("div","film-play");
+  play.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
+  var meta = el("div","film-meta");
+  var nm = el("div","film-name", f.name);
+  var sb = el("div","film-sub");
+  sb.appendChild(el("span",null,f.sub));
+  sb.appendChild(el("span","fdot"));
+  sb.appendChild(el("span",null,f.dur));
+  meta.appendChild(nm); meta.appendChild(sb);
+  var exp = el("button","film-expand");
+  exp.setAttribute("aria-label","放大观看");
+  exp.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg>';
+  card.appendChild(po); card.appendChild(veil); card.appendChild(play); card.appendChild(meta); card.appendChild(exp);
+  card.addEventListener("click", function(){
+    if(card.classList.contains("playing")) return;
+    card.classList.add("playing");
+    var v = document.createElement("video");
+    v.src = f.src; v.poster = f.poster;
+    v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = "auto";
+    card.appendChild(v);
+    var pr = v.play(); if(pr && pr.catch){ pr.catch(function(){}); }
+  });
+  exp.addEventListener("click", function(e){
+    e.stopPropagation();
+    openCinema(card, f);
+  });
+  filmGrid.appendChild(card);
+});
+
+/* 页内影院放大：把正在播放的 video 移入全屏遮罩，关闭时移回，进度/播放不中断 */
+var cinema = el("div","film-cinema");
+var cineStage = el("div","film-cinema-stage");
+var cineCap = el("div","film-cinema-cap");
+var cineClose = el("button","cine-close");
+cineClose.setAttribute("aria-label","退出放大");
+cineClose.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+cinema.appendChild(cineClose);
+cinema.appendChild(cineStage);
+cinema.appendChild(cineCap);
+document.body.appendChild(cinema);
+var cineFrom = null;
+function openCinema(card, f){
+  var v = card.querySelector("video");
+  if(!v) return;
+  cineFrom = card;
+  cineStage.appendChild(v);
+  cineCap.textContent = f.name + " · " + f.sub;
+  cinema.classList.add("open");
+  document.body.classList.add("cinema-open");
+}
+function closeCinema(){
+  if(!cinema.classList.contains("open")) return;
+  var v = cineStage.querySelector("video");
+  if(v && cineFrom){ cineFrom.appendChild(v); }
+  cinema.classList.remove("open");
+  document.body.classList.remove("cinema-open");
+  cineFrom = null;
+}
+cineClose.addEventListener("click", closeCinema);
+cinema.addEventListener("click", function(e){ if(e.target===cinema) closeCinema(); });
+document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeCinema(); });
 
 </script>
 </body>
